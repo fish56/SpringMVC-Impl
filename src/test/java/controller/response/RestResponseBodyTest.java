@@ -21,13 +21,13 @@ public class RestResponseBodyTest extends AutowiredTest {
     private static String baseUrl = "/response/rest";
 
     @Autowired
-    Monkey monkey;
+    private Monkey monkey;
 
     @Autowired
-    Map map;
+    private Map map;
 
     @Autowired
-    List list;
+    private List list;
 
     @Test
     public void object() throws Exception{

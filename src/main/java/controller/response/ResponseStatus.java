@@ -1,5 +1,7 @@
 package controller.response;
 
+import entity.Monkey;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
@@ -32,5 +34,15 @@ public class ResponseStatus {
         return ResponseEntity.status(302)
                 .header("Location","https://www.github.com/fish56")
                 .body("");
+    }
+
+    @Autowired
+    private Monkey monkey;
+
+    // 响应体里面的对象也会转化为JSON格式
+    @RequestMapping("/201")
+    public ResponseEntity<Monkey> status201(){
+        return ResponseEntity.status(201)
+                .body(monkey);
     }
 }

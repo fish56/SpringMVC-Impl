@@ -2,7 +2,9 @@ package controller.response;
 
 import base.AutowiredTest;
 import com.alibaba.fastjson.JSONObject;
+import entity.Monkey;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -38,5 +40,20 @@ public class ResponseStatusTest extends AutowiredTest {
                 .andExpect(haveLocationHeader);
 //        System.out.println(mockMvc.perform(builder).andReturn()
 //          .getResponse().getHeaderNames().toString());
+    }
+
+    @Autowired
+    private Monkey monkey;
+    @Test
+    public void status201() throws Exception{
+        ResultMatcher is201 = MockMvcResultMatchers.status().is(201);
+        ResultMatcher msg = MockMvcResultMatchers.content()
+                .json(JSONObject.toJSONString(monkey));
+
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
+                .get(baseUrl + "/201");
+
+        mockMvc.perform(builder)
+                .andExpect(msg);
     }
 }
