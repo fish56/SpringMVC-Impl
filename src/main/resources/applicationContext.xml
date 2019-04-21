@@ -32,5 +32,5 @@
         <!-- prefix + Controller中返回的viewName + suffix -->
     </bean>
 
-    <import resource="classpath:testObjects/testObjects.xml"/>
+    <import resource="classpath:spring/*.xml"/>
 </beans>
