@@ -23,4 +23,19 @@ public class RequestHeaderHandlerTest extends AutowiredTest {
         mockMvc.perform(builder)
                 .andExpect(msg);
     }
+
+    @Test
+    public void getHeaders() throws Exception{
+        String value1 = "value1";
+
+        ResultMatcher msg = MockMvcResultMatchers.content()
+                .string(value1);
+
+        MockHttpServletRequestBuilder builder =
+                MockMvcRequestBuilders.get("/request/headers")
+                        .header("header1", value1);
+
+        mockMvc.perform(builder)
+                .andExpect(msg);
+    }
 }

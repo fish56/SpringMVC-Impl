@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <!-- 为什么不管用呢？ 、、算了 -->
+    <!--&lt;!&ndash; 配置检验器 &ndash;&gt;-->
+    <!--<bean id="validator"-->
+          <!--class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
+        <!--&lt;!&ndash; 指定检验器 &ndash;&gt;-->
+        <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
+
+        <!--&lt;!&ndash; 校验使用的资源文件 &ndash;&gt;-->
+        <!--<property name="validationMessageSource" ref="messageResource"/>-->
+    <!--</bean>-->
+
+     <!--&lt;!&ndash; 配置出错信息 &ndash;&gt;-->
+    <!--<bean id="messageResource"-->
+          <!--class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
+        <!--&lt;!&ndash;<property name="basenames" value="classpath:spring/validation"/>&ndash;&gt;-->
+        <!--<property name="basenames" value="classpath:message"/>-->
+        <!--<property name="fileEncodings" value="utf-8"/>-->
+        <!--<property name="cacheSeconds" value="120"/>-->
+    <!--</bean>-->
+</beans>

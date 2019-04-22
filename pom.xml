@@ -40,15 +40,24 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <!-- https://stackoverflow.com/questions/24049480/
+      spring-mockmvc-doesnt-consider-validation-in-my-test -->
+      <!-- 在使用mockMvc进行测试的时候，需要这个依赖才能完成数据检验 -->
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.el</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    <dependency>
       <!-- 数据校验的包 -->
       <!-- 提供：javax.validation.constraints annotations
-                 (also known as JSR-303 annotations)-->
+                 (also known as JSR-303 annotations)
+                以及它具体的实现 -->
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>6.0.16.Final</version>
-      <type>pom</type>
     </dependency>
     <dependency>
+      <!-- 用来构建随机字符串 -->
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.8.1</version>
@@ -62,7 +71,7 @@
       <!-- 用来将JSON格式转为为POJO对象 -->
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <!-- 这个版本至少得是2.9.4，要不然在解析请求体的时候回报错 -->
+      <!-- 这个版本至少得是2.9.4，要不然在解析请求体的时候会报错 -->
       <version>2.9.4</version>
     </dependency>
     <dependency>

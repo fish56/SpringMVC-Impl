@@ -12,6 +12,12 @@ RealTest --> AutowiredTest --> BaseTest 的方式来继承环境配置
 
   用来构造一个HTTP请求
   
-- mockMvc.perform(builder).andExpect(status)
+- mockMvc.perform(builder)
   
-  执行测试，perform发起请求，andExpect来确认结果
+  执行测试，perform发起请求
+  
+  - .andExpect(status)
+    andExpect来确认结果
+    
+  - .andDo()
+    做一些处理，一般是print
