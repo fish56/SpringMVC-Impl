@@ -22,8 +22,12 @@
     <bean id="rootHandler" class="controller.RootControllerHandler"/>
 
     <!-- 在SpringMVC中，还是通过注解来配置更加的方便 -->
+
     <context:component-scan base-package="controller"/>
+    <!-- 这个注解是让Spring扫描所有被@Component（以及它的子注解）所标注的类-->
+
     <mvc:annotation-driven/>
+    <!-- 而这个注解是让SpringMVC的@RequestMapping等注解生效而不必在配置文件中配置 -->
 
     <!-- 将视图名称映射成真实的jsp文件 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

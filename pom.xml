@@ -40,6 +40,20 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <!-- 数据校验的包 -->
+      <!-- 提供：javax.validation.constraints annotations
+                 (also known as JSR-303 annotations)-->
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.0.16.Final</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.8.1</version>
+    </dependency>
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
       <version>2.9.8</version>

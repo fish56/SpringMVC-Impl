@@ -45,4 +45,19 @@ public class RequestMappingHandlerTest extends AutowiredTest {
         mockMvc.perform(builder)
                 .andExpect(methodNotAllowed);
     }
+
+    @Test
+    public void multipleRouters() throws Exception{
+        ResultMatcher isOk = MockMvcResultMatchers.status().isOk();
+
+        MockHttpServletRequestBuilder builder3 =
+                MockMvcRequestBuilders.patch("/routers/router3");
+        MockHttpServletRequestBuilder builder4 =
+                MockMvcRequestBuilders.patch("/routers/router4");
+
+        mockMvc.perform(builder3)
+                .andExpect(isOk);
+        mockMvc.perform(builder4)
+                .andExpect((isOk));
+    }
 }

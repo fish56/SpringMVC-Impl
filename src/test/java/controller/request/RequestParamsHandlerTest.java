@@ -2,6 +2,7 @@ package controller.request;
 
 import base.AutowiredTest;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MvcResult;
@@ -10,6 +11,9 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -58,6 +62,30 @@ public class RequestParamsHandlerTest extends AutowiredTest {
 
         MockHttpServletRequestBuilder builder =
                 MockMvcRequestBuilders.get(baseUrl + "StringArray?values=v1&values=v2");
+
+        mockMvc.perform(builder)
+                .andExpect(msg);
+    }
+
+    @Test
+    public void allParams() throws Exception{
+        // 服务器读取所有参数并返回
+
+        // 服务器应该读取所有参数而不用知道参数的key
+        //   所以这里使用了一个随机字符串作为key
+        String randomKey = RandomStringUtils.randomAlphabetic(10);
+
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("k1", "v1");
+        map.put(randomKey, "v2");
+
+        ResultMatcher msg = MockMvcResultMatchers.content()
+                .json(JSONObject.toJSONString(map));
+
+        MockHttpServletRequestBuilder builder =
+                MockMvcRequestBuilders.get(baseUrl + "all-params")
+                .param("k1", "v1")
+                .param(randomKey, "v2");
 
         mockMvc.perform(builder)
                 .andExpect(msg);

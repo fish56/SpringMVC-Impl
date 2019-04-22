@@ -28,7 +28,7 @@ public class MvcResponseBody {
     }
 
     // 可以把数据写成map的形式
-    @RequestMapping("/app/string-as-view-name")
+    @RequestMapping("/map-as-model")
     public String strAsResult(Map<String, String> model){
         model.put("key1", "value1");
         return "mvc";

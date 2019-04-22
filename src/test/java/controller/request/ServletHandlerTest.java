@@ -13,7 +13,7 @@ public class ServletHandlerTest extends AutowiredTest {
 
     @Test
     public void servlet() throws Exception{
-        ResultMatcher status = MockMvcResultMatchers.status().isOk();
+        ResultMatcher status = MockMvcResultMatchers.status().is(201);
 
         MockHttpServletRequestBuilder builder =
                 MockMvcRequestBuilders.get("/request/servlet");
@@ -21,5 +21,21 @@ public class ServletHandlerTest extends AutowiredTest {
         // 成功的使用原生的Servlet
         mockMvc.perform(builder)
                 .andExpect(status);
+    }
+
+    @Test
+    public void inputStream() throws Exception{
+        String msg = "hello world";
+
+        ResultMatcher resultMatcher = MockMvcResultMatchers.content()
+                .string(msg);
+
+        MockHttpServletRequestBuilder builder =
+                MockMvcRequestBuilders.get("/request/servlet/is-os")
+                .content(msg);
+
+        // 服务器读取请求体并原样返回
+        mockMvc.perform(builder)
+                .andExpect(resultMatcher);
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
+// 参数绑定可以按照特定的格式
+//   解析日期类型
 @RestController
 @RequestMapping("/request/date")
 public class DateHandler {
