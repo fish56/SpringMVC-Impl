@@ -29,5 +29,13 @@
           前者的preHandler优先于后者执行
           前者的postHandle、afterCompletion晚于后者执行
         -->
+
+        <!-- 跨域请求 -->
+        <mvc:interceptor>
+            <!-- 拦截该路由下的请求 -->
+            <mvc:mapping path="/"/>
+            <!-- 使用这个拦截器 -->
+            <bean class="interceptor.Cors"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

@@ -82,7 +82,7 @@ public class ValidatorTest extends AutowiredTest {
                         .content(userString);
 
         ResultHandler resultHandler = MockMvcResultHandlers.print();
-        // 电话号码不能有数字的
+        // 电话号码只能有数字的
         mockMvc.perform(builder)
                 .andExpect(is4xx)
                 .andDo(resultHandler);
@@ -107,7 +107,7 @@ public class ValidatorTest extends AutowiredTest {
                         .content(userString);
 
         ResultHandler resultHandler = MockMvcResultHandlers.print();
-        // 电话号码不能有数字的
+
         mockMvc.perform(builder)
                 .andExpect(is4xx)
                 .andDo(resultHandler);

@@ -15,11 +15,11 @@ public class Counter implements HandlerInterceptor {
 
         System.out.println("preHandle: a request comes...");
 
-        // 如果返回值为false，就终止这个HTTP请求
+        // 如果返回值为false，就终止这个HTTP请求，不会调用路由方法
         return true;
     }
 
-    // handler成功执行后调用，路由方法抛出异常后不会调用
+    // 进入路由方法后，即将返回ModelAndView之前调用，路由方法抛出异常后不会调用
     public void postHandle(HttpServletRequest request,
                            HttpServletResponse response,
                            Object handler,
@@ -29,7 +29,7 @@ public class Counter implements HandlerInterceptor {
 
     }
 
-    // 在即将返回前调用，可以拦截到异常
+    // 路由方法返回后，在即将返回HTTP报文前调用，可以拦截到异常
     public void afterCompletion(HttpServletRequest request,
                                 HttpServletResponse response,
                                 Object handler,
