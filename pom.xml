@@ -28,6 +28,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <!-- 文件上传依赖的jar包 -->
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+    <dependency>
       <!-- 用来比较JSON格式的相等-->
       <groupId>org.skyscreamer</groupId>
       <artifactId>jsonassert</artifactId>
