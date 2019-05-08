@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.Assert.*;
@@ -34,6 +35,7 @@ public class RequestBodyHandlerTest extends AutowiredTest {
                         .content(monkeyString);
 
         mockMvc.perform(builder)
-                .andExpect(msg);
+                .andExpect(msg)
+                .andDo(MockMvcResultHandlers.print());
     }
 }
