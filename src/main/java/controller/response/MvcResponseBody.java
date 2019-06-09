@@ -33,4 +33,13 @@ public class MvcResponseBody {
         model.put("key1", "value1");
         return "mvc";
     }
+
+    /**
+     * 直接302重定向到/response/mvc/model?a=a
+     * @return
+     */
+    @RequestMapping("/redirect")
+    public String redirect(){
+        return "redirect:/response/mvc/model?a=a";
+    }
 }
