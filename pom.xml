@@ -85,7 +85,7 @@
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <!-- 这个版本至少得是2.9.4，要不然在解析请求体的时候会报错 -->
-      <version>2.9.4</version>
+      <version>2.9.10.4</version>
     </dependency>
     <dependency>
       <groupId>com.alibaba</groupId>
